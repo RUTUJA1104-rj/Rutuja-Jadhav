@@ -11,7 +11,7 @@ void main()
 	int temp=n;
 	while(temp>0)
 	{
-		printf("sjcb");
+		
 		rem=temp%10;
 		rev=rev*10+rem;
 		temp=temp/10;
