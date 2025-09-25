@@ -1,0 +1,118 @@
+1]. Login to MySQL and view all databases already present. You should get
+following result :
+
+SHOW DATABASES;
+
+
+2]. Write an SQL statement to create a simple table countries including columns
+country_id,country_name and region_id. After this display the structure of
+table as below :
+
+mysql> create table COUNTRIES
+    -> (
+    -> COUNTRY_ID INT(11),
+    -> COUNTRY_NAME VARCHAR(20),
+    -> REGION_ID INT(11)
+    -> );
+
+
+
+3]. Write an SQL statement to create a table named jobs including columns
+job_id, job_title, min_salary, max_salary and check whether the
+max_salary amount exceeding the upper limit 25000. Also set job_id as
+primary key and entering null values for job_title is not allowed.
+
+  mysql> CREATE TABLE JJOB
+    -> (
+    -> JOB_ID INT PRIMARY KEY,
+    -> JOB_TITLE VARCHAR(20),
+    -> MIN_SALARY DECIMAL(7,2),
+    -> MAX_SALARY DECIMAL(10,2) CHECK (MAX_SALARY <= 25000)
+    -> );
+
+
+4]. Write a SQL statement to create a table named job_histry including columns
+employee_id, start_date, end_date, job_id and department_id
+
+sql> CREATE TABLE DDPARTMENT
+    -> (
+    -> EMPLOYEE_ID INT,
+    -> START_DATE DATE,
+    -> END_DATE DATE,
+    -> JOB_ID INT,
+    -> DEPARTMENT_ID INT
+    -> );
+
+
+
+
+5. Write an SQL statement to alter a table named countries to make sure that no
+duplicate data against column country_id will be allowed at the time of
+insertion.
+
+mysql> ALTER TABLE COUNTRIES
+    -> ADD PRIMARY KEY(COUNTRY_ID);
+
+
+6. Write an SQL statement to create a table named jobs including columns job_id,
+job_title, min_salary and max_salary, and make sure that, the default value
+for job_title is blank and min_salary is 8000 and max_salary is NULL will be
+entered automatically at the time of insertion if no value assigned for the
+specified columns.
+
+mysql> CREATE TABLE JOBSS
+    -> (
+    -> job_id int primary key
+    -> job_title varchar(50) not null default '',
+    -> min_salary int default 8000,
+    -> max_salary int default null
+    -> );
+Query OK, 0 rows affected (0.22 sec)
+
+7].Create a Department table with following structure
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| D_ID   | decimal(4,0) | NO   | PRI | 0       |       |
+| d_NAME | varchar(30)  | NO   |     | NULL    |       |
+| M_ID   | decimal(6,0) | NO   | PRI | 0       |       |
+| L_ID   | decimal(4,0) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+
+
+ CREATE TABLE DEPARTMENTSS (
+    ->     D_ID DECIMAL(4,0) NOT NULL DEFAULT 0,
+    ->     d_NAME VARCHAR(30) NOT NULL,
+    ->     M_ID DECIMAL(6,0) NOT NULL DEFAULT 0,
+    ->     L_ID DECIMAL(4,0),
+    ->     PRIMARY KEY (D_ID, M_ID)
+    -> );
+
+
+
+8. Write an SQL statement to create a table employees including columns
+employee_id, first_name, last_name, email, phone_number hire_date, job_id,
+salary, commission, manager_id and department_id and make sure that, the
+employee_id column does not contain any duplicate value at the time of
+insertion and the foreign key columns combined by department_id and
+manager_id columns contain only those unique combination values, which
+combinations are exists in the departments table.
+
+l_name varc' at line 1
+mysql> create table emply
+    -> (
+    -> emply_id int ,
+    -> f_name varchar(20),
+    -> l_name varchar(20),
+    -> email varchar(30),
+    -> p_number int,
+    -> h_date date,
+    -> job_id  int,
+    -> salary decimal(7,2),
+    -> comission decimal(5,2),
+    -> M_id decimal(6,0),
+    -> D_ID decimal(10,0),
+    -> constraint dprtmnts foreign key(D_ID,M_id)
+    -> references dprtmnts(D_ID,M_id)
+    -> );
+
