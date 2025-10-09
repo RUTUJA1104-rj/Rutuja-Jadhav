@@ -1,0 +1,139 @@
+
+mysql> INSERT INTO employee
+    ->     (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id)
+    -> VALUES
+    ->     (100, 'Steven', 'King', 'sking', '515.123.4567', '1987-06-17', 'AD_PRES', 24000.00, 0.00, NULL, 200);
+    ->     (101, 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', '1987-06-18', 'AD_VP', 17000.00, 0.00, 200,10),
+    ->     (103, 'Alexander', 'Hunold', 'AHUNOLD', '590.423.4567', '1987-06-20', 'IT_PROG', 9000.00, 0.00, 103,60),
+    ->     (104, 'Bruce', 'Ernst', 'BERNST', '590.423.4568', '1987-06-21', 'IT_PROG', 6000.00, 0.00, 103,60),
+    ->     (105, 'David', 'Austin', 'DAUSTIN', '590.423.4569', '1987-06-22', 'IT_PROG', 48000.00, 0.00, 103,60),
+    ->     (106, 'Valli', 'Pataballa', 'VPATABAL', '590.423.4560', '1987-06-23', 'IT_PROG', 48000.00, 0.00, 103,60),
+    ->     (107, 'Diana', 'Lorentz', 'DLORENTZ', '590.423.5567', '1987-06-24', 'IT_PROG', 42000.00, 0.00, 114,30),
+    ->     (108, 'Nancy', 'Greenberg', 'NGREENBE', '515.124.4569', '1987-06-25', 'SA_MAN', 12000.00, 0.00, 145,80),
+    ->     (109, 'Daniel', 'Faviet', 'DFAVIET', '515.124.4169', '1987-06-26', 'SA_MAN', 9000.00, 0.00, 145,80);
+
+
+
+
+ DEPARTMENT:
++---------------+------------------+------------+-------------+
+| department_id | department_name  | manager_id | location_id |
++---------------+------------------+------------+-------------+
+|            10 | Administration   |        200 |        1700 |
+|            20 | Marketing        |        201 |        1800 |
+|            30 | Purchasing       |        114 |        1700 |
+|            40 | Human Resources  |        203 |        2400 |
+|            50 | Shipping         |        121 |        1500 |
+|            60 | IT               |        103 |        1400 |
+|            70 | Public Relations |        204 |        2700 |
+|            80 | Sales            |        145 |        2500 |
++---------------+------------------+------------+-------------+
+
+ CREATE TABLE department (
+    ->     department_id INT PRIMARY KEY,
+    ->     department_name VARCHAR(50) NOT NULL,
+    ->     manager_id INT,
+    ->     location_id INT
+    -> );
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> INSERT INTO department (department_id, department_name, manager_id, location_id)
+    -> VALUES
+    ->     (10, 'Administration', 200, 1700),
+    ->
+    ->     (20, 'Marketing', 201, 1800),
+    ->     (30, 'Purchasing', 114, 1700),
+    ->     (40, 'Human Resources', 203, 2400),
+    ->     (50, 'Shipping', 121, 1500),
+    ->     (60, 'IT', 103, 1400),
+    ->     (70, 'Public Relations', 204, 2700),
+    ->     (80, 'Sales', 145, 2500);
+
+
+2. Write a SQL statement to insert 3 rows by a single insert statement.
+
+
+mysql> INSERT INTO department (department_id, department_name, manager_id, location_id)
+    -> VALUES
+    ->     (101, 'Research', 200, 1700),
+    ->     (102, 'Development', 201, 1800),
+    ->     (103, 'QA', 202, 1900);
+Query OK, 3 rows affected (0.10 sec)
+
+3) Write a SQL statement to insert one row in jobs table to ensure that no duplicate
+value will be entered in the job_id column.
+
++------------+-------------------------------+------------+------------+
+| job_id     | job_title                     | min_salary | max_salary |
++------------+-------------------------------+------------+------------+
+| AC_ACCOUNT | Public Accountant             |       4200 |       9000 |
+| AC_MSR     | Accounting Manager            |       8200 |      16000 |
+| AD_ASST    | Finance Manager               |       8200 |      16000 |
+| AD_PRES    | President                     |      20000 |      40000 |
+| AD_VP      | Administration Vice President |      15000 |      30000 |
+| FI_ACCOUNT | Accountant                    |       4200 |       9000 |
+| SA_MAN     | Sales Manager                 |      10000 |      20000 |
++------------+-------------------------------+------------+------------+
+ INSERT INTO job (job_id, job_title, min_salary, max_salary)
+    -> VALUES
+    -> ('AD_PRES', 'President', 20000, 40000),
+    -> ('AD_VP', 'Administration Vice President', 15000, 30000),
+    -> ('AD_ASST', 'Finance Manager', 8200, 16000),
+    -> ('FI_ACCOUNT', 'Accountant', 4200, 9000),
+    -> ('AC_MSR', 'Accounting Manager', 8200, 16000),
+    -> ('AC_ACCOUNT', 'Public Accountant', 4200, 9000),
+    -> ('SA_MAN', 'Sales Manager', 10000, 20000);
+
+
+4. Write SQL statement to increment salary of each emp by 10%.
+
+ update employee
+    -> set salary = salary * 1.10;
+Query OK, 10 rows affected (0.26 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+mysql> table employee;
++-------------+-----------+--------------+------------+---------+--------+------------+------------+---------------+------+------------+----------+----------------+-------------+
+| employee_id | last_name | phone_number | hire_date  | job_id  | salary | commission | manager_id | department_id | name | first_name | email    | commission_pct | location_id |
++-------------+-----------+--------------+------------+---------+--------+------------+------------+---------------+------+------------+----------+----------------+-------------+
+|         100 | King      | 515.123.4567 | 1987-06-17 | AD_PRES |  26400 |       NULL |       NULL |           200 | NULL | Steven     | sking    | 0.00           | NULL        |
+|         101 | Kochhar   | 515.123.4568 | 1987-06-18 | AD_VP   |  18700 |       NULL |        200 |            10 | NULL | Neena      | NKOCHHAR | 0.00           | NULL        |
+|         102 | De Haan   | 515.123.4569 | 1987-06-19 | AD_VP   |  18700 |       NULL |        200 |            10 | NULL | Lex        | LDEHAAN  | 0.00           | NULL        |
+|         103 | Hunold    | 590.423.4567 | 1987-06-20 | IT_PROG |   9900 |       NULL |        103 |            60 | NULL | Alexander  | AHUNOLD  | 0.00           | NULL        |
+|         104 | Ernst     | 590.423.4568 | 1987-06-21 | IT_PROG |   6600 |       NULL |        103 |            60 | NULL | Bruce      | BERNST   | 0.00           | NULL        |
+|         105 | Austin    | 590.423.4569 | 1987-06-22 | IT_PROG |  52800 |       NULL |        103 |            60 | NULL | David      | DAUSTIN  | 0.00           | NULL        |
+|         106 | Pataballa | 590.423.4560 | 1987-06-23 | IT_PROG |  52800 |       NULL |        103 |            60 | NULL | Valli      | VPATABAL | 0.00           | NULL        |
+|         107 | Lorentz   | 590.423.5567 | 1987-06-24 | IT_PROG |  46200 |       NULL |        114 |            30 | NULL | Diana      | DLORENTZ | 0.00           | NULL        |
+|         108 | Greenberg | 515.124.4569 | 1987-06-25 | SA_MAN  |  13200 |       NULL |        145 |            80 | NULL | Nancy      | NGREENBE | 0.00           | NULL        |
+|         109 | Faviet    | 515.124.4169 | 1987-06-26 | SA_MAN  |   9900 |       NULL |        145 |            80 | NULL | Daniel     | DFAVIET  | 0.00           | NULL        |
++-------------+-----------+--------------+------------+---------+--------+------------+------------+---------------+------+------------+----------+----------------+-------------+
+
+5. Write a SQL statement to change the email column of employees table with 'not  available' for those employees whose department_id is 80 and gets a  commission is less than .20% 
+
+> UPDATE employee
+    -> SET email = 'not available'
+    -> WHERE department_id = 80
+    ->   AND commission_pct < 0.20;
+
+6. Write a SQL statement to change the email column of employees table with 'not  available' for those employees who belongs to the 'Purchasing' department. 
+ UPDATE employee e
+    -> JOIN department d
+    ->     ON e.department_id = d.department_id
+    -> SET e.email = 'not available'
+    -> WHERE d.department_name = 'Purchasing';
+
+
+7. Write a SQL statement to change the email and commission_pct column of  employees table with 'not available' and 0.10 for all employees.
+
+ UPDATE employee
+    -> SET email = 'not available',
+    ->     commission_pct = 0.10;
+
+
+
+
+
+
+
+
+
