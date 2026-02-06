@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Welcome to FirstBit Solutions</h1>  
+   <img src="/FBS Logo.jpg">
+
+  <h5><a href="#">FirstBitSolution.com</a></h5>
+  <i>Your Future Begins Here!</i>
+  <p><b>Address:</b>Office No.7,3rd Floor,Aditya Centeegra,Near IDBI Bank,<br>
+  Dnyaneshwer Paduka Chowk,Fergusson College Road,Pune,Maharashra 411005
+  </p>
+
+
+  <h1><u>Courses We Offer</u></h1>
+
+  <ul>
+  <li>Java Full Stack</li>
+  <li>Python Full Stack</li>
+  <li>Data Science</li>
+  <li>Mean and Mern</li>
+  </ul>
+
+<h1>class Timing</h1>
+
+
+<table border="2">
+    <h1>Weekly Batch Schedule</h1>
+
+
+<tr>
+   <th>Time</th>
+   <th>Course</th>
+   <th>Trainer</th>
+
+</tr>
+
+
+<tr>
+    <th>11:00<sup>AM</sup>-12:30<sub>PM</sub></th>
+    <th>Java</th>
+    <th>Vinayak Ujalambe</th>
+</tr>
+
+
+<tr>
+    <th>11:00<sup>PM</sup>-12:30<sub>PM</sub></th>
+    <th>Python</th>
+    <th>Ranjeet Kamble</th>
+</tr>
+
+<tr>
+    <th>05:00<sup>PM</sup>-06:30<sub>PM</sub></th>
+    <th>Web Programming</th>
+    <th>Shubham Wagh</th>
+</tr>
+
+</table>
+<hr>
+
+
+
+<h2><u>Our Core Values</u></h2>
+<ul>
+    <li>Organization Before Self</li>
+    <li>Integrity</li>
+    <li>Striving for Omega</li>
+    <li>Continious Value addition</li>
+</ul>
+
+
+
+
+
+
+<h1>Student Registration Form</h1>
+
+<form>
+  Full Name:<br>
+  <input type="text" name="fullname"><br><br>
+
+  Email:<br>
+  <input type="email" name="email"><br><br>
+
+  Select Gender:<br>
+  <input type="radio" name="gender" value="Male"> Male<br>
+  <input type="radio" name="gender" value="Female"> Female<br><br>
+
+  Choose Course:
+    <select>
+        <option>Java Full Stack</option>
+        <option>Python</option>
+        <option>Web Development</option>
+    </select>
+    <br><br>
+
+    Additional Notes:<br>
+    <textarea rows="4" cols="30"></textarea>
+    <br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Clear">
+</form>
+
+<br><br>
+<p><i>Thank you for choosing FirstBit Solution!</i></p>
+<p>© 2025 FirstBit Solution. All rights reserved.</p>
+
+</body>
+</html>
